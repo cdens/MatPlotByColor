@@ -11,10 +11,10 @@ function plotbycolor(x,y,z,varargin)
 %   o z: Values by which the line for x/y will be colored
 %
 % Optional input arguments:
-%   o contours: 
-%   o colormap: 
-%   o linewidth: 
-%   o axes:
+%   o contours: values of edges for each color
+%   o colormap: colormap to use for line (default jet), size = contours+1
+%   o linewidth: width of line to plot (default = 2)
+%   o axes: parent axes in which to plot (default = gca)
 %
 
 
@@ -72,7 +72,7 @@ end
 if isempty(zcontours)
     zmin = min(z);
     zmax = max(z);
-    zcontours = zmin:(zmax-zmin)/20:zmax;
+    zcontours = zmin:(zmax-zmin)/100:zmax;
 end
 if isempty(zcolormap)
     zcolormap = jet(length(zcontours)+1);
